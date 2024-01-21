@@ -41,10 +41,10 @@ function checkifcorrect(event){
 function startQuiz() {
 
     correctans.style.color="black";
-                    op1.style.color="black";
-                    op2.style.color="black";
-                    op3.style.color="black";
-                    op4.style.color="black";
+    op1.style.color="black";
+    op2.style.color="black";
+    op3.style.color="black";
+    op4.style.color="black";
 
 
     
@@ -112,6 +112,11 @@ function startQuiz() {
 
             previous.addEventListener('click', function () {
                 if (currentQuestionIndex > 0) {
+                    correctans.style.color="black";
+                    op1.style.color="black";
+                    op2.style.color="black";
+                    op3.style.color="black";
+                    op4.style.color="black";
                     currentQuestionIndex--;
                     displayQuestion(currentQuestionIndex);
                     
@@ -143,6 +148,11 @@ function startQuiz() {
             previous.addEventListener('click', function () {
                 if (currentQuestionIndex > 0) {
                     currentQuestionIndex--;
+                    correctans.style.color="black";
+                    op1.style.color="black";
+                    op2.style.color="black";
+                    op3.style.color="black";
+                    op4.style.color="black";
                     displayQuestion(currentQuestionIndex);
                     
                 } else {
@@ -176,6 +186,11 @@ function startQuiz() {
                 previous.addEventListener('click', function () {
                     if (currentQuestionIndex > 0) {
                         currentQuestionIndex--;
+                        correctans.style.color="black";
+                        op1.style.color="black";
+                        op2.style.color="black";
+                        op3.style.color="black";
+                        op4.style.color="black";
                         displayQuestion(currentQuestionIndex);
                         
                     } else {
@@ -206,6 +221,11 @@ function startQuiz() {
                 previous.addEventListener('click', function () {
                     if (currentQuestionIndex > 0) {
                         currentQuestionIndex--;
+                        correctans.style.color="black";
+                        op1.style.color="black";
+                        op2.style.color="black";
+                        op3.style.color="black";
+                        op4.style.color="black";
                         displayQuestion(currentQuestionIndex);
                         
                     } else {
