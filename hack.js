@@ -4,8 +4,6 @@ function getRandomInt(min, max) {
 }
 
 var CApos = getRandomInt(1, 4);
-var category = document.getElementById('category').value;
-var difficulty = document.getElementById('difficulty').value;
 var question = document.getElementById('Question');
 var correctans = document.getElementById(CApos);
 var next = document.getElementById('Next');
@@ -39,6 +37,11 @@ function checkifcorrect(event){
 
 
 function startQuiz() {
+var category = document.getElementById('category').value;
+var difficulty = document.getElementById('difficulty').value;
+
+    console.log(difficulty);
+    console.log(category);
 
     correctans.style.color="black";
     op1.style.color="black";
@@ -46,8 +49,6 @@ function startQuiz() {
     op3.style.color="black";
     op4.style.color="black";
 
-
-    
     currentQuestionIndex = 0;
 
     function displayQuestion(index) {
@@ -86,6 +87,7 @@ function startQuiz() {
     }
 
     var currentQuestionIndex = 0;
+    
     if(difficulty==1){
         if(category==1){
             fetch(`https://opentdb.com/api.php?amount=5&type=multiple`)
@@ -137,9 +139,13 @@ function startQuiz() {
                 if (currentQuestionIndex < data.results.length - 1) {
                     currentQuestionIndex++;
                     correctans.style.color="black";
+                    op1.style.color="black";
+                    op2.style.color="black";
+                    op3.style.color="black";
+                    op4.style.color="black";
                     CApos = getRandomInt(1, 4);
                     correctans = document.getElementById(CApos);
-                    displayQuestion(currentQuestionIndex);
+                     displayQuestion(currentQuestionIndex);
                 } else {
                     endQuiz();
                 }
@@ -147,12 +153,12 @@ function startQuiz() {
 
             previous.addEventListener('click', function () {
                 if (currentQuestionIndex > 0) {
-                    currentQuestionIndex--;
                     correctans.style.color="black";
                     op1.style.color="black";
                     op2.style.color="black";
                     op3.style.color="black";
                     op4.style.color="black";
+                    currentQuestionIndex--;
                     displayQuestion(currentQuestionIndex);
                     
                 } else {
@@ -169,30 +175,33 @@ function startQuiz() {
             .then((result) => result.json())
             .then((fetchedData) => { 
                 data = fetchedData; 
-                displayQuestion(currentQuestionIndex);
-    
-                next.addEventListener('click', function () {
-                    if (currentQuestionIndex < data.results.length - 1) {
-                        currentQuestionIndex++;
-                        correctans.style.color="black";
-                        CApos = getRandomInt(1, 4);
-                        correctans = document.getElementById(CApos);
-                        displayQuestion(currentQuestionIndex);
-                    } else {
-                        endQuiz();
-                    }
-                });
-    
-                previous.addEventListener('click', function () {
-                    if (currentQuestionIndex > 0) {
-                        currentQuestionIndex--;
-                        correctans.style.color="black";
-                        op1.style.color="black";
-                        op2.style.color="black";
-                        op3.style.color="black";
-                        op4.style.color="black";
-                        displayQuestion(currentQuestionIndex);
-                        
+            displayQuestion(currentQuestionIndex);
+
+            next.addEventListener('click', function () {
+                if (currentQuestionIndex < data.results.length - 1) {
+                    currentQuestionIndex++;
+                    correctans.style.color="black";
+                    op1.style.color="black";
+                    op2.style.color="black";
+                    op3.style.color="black";
+                    op4.style.color="black";
+                    CApos = getRandomInt(1, 4);
+                    correctans = document.getElementById(CApos);
+                     displayQuestion(currentQuestionIndex);
+                } else {
+                    endQuiz();
+                }
+            });
+
+            previous.addEventListener('click', function () {
+                if (currentQuestionIndex > 0) {
+                    correctans.style.color="black";
+                    op1.style.color="black";
+                    op2.style.color="black";
+                    op3.style.color="black";
+                    op4.style.color="black";
+                    currentQuestionIndex--;
+                    displayQuestion(currentQuestionIndex);
                     } else {
                         alert('This is the first question.');
                     }
@@ -204,29 +213,33 @@ function startQuiz() {
             .then((result) => result.json())
             .then((fetchedData) => { 
                 data = fetchedData; 
-                displayQuestion(currentQuestionIndex);
-    
-                next.addEventListener('click', function () {
-                    if (currentQuestionIndex < data.results.length - 1) {
-                        currentQuestionIndex++;
-                        correctans.style.color="black";
-                        CApos = getRandomInt(1, 4);
-                        correctans = document.getElementById(CApos);
-                        displayQuestion(currentQuestionIndex);
-                    } else {
-                        endQuiz();
-                    }
-                });
-    
-                previous.addEventListener('click', function () {
-                    if (currentQuestionIndex > 0) {
-                        currentQuestionIndex--;
-                        correctans.style.color="black";
-                        op1.style.color="black";
-                        op2.style.color="black";
-                        op3.style.color="black";
-                        op4.style.color="black";
-                        displayQuestion(currentQuestionIndex);
+            displayQuestion(currentQuestionIndex);
+
+            next.addEventListener('click', function () {
+                if (currentQuestionIndex < data.results.length - 1) {
+                    currentQuestionIndex++;
+                    correctans.style.color="black";
+                    op1.style.color="black";
+                    op2.style.color="black";
+                    op3.style.color="black";
+                    op4.style.color="black";
+                    CApos = getRandomInt(1, 4);
+                    correctans = document.getElementById(CApos);
+                     displayQuestion(currentQuestionIndex);
+                } else {
+                    endQuiz();
+                }
+            });
+
+            previous.addEventListener('click', function () {
+                if (currentQuestionIndex > 0) {
+                    correctans.style.color="black";
+                    op1.style.color="black";
+                    op2.style.color="black";
+                    op3.style.color="black";
+                    op4.style.color="black";
+                    currentQuestionIndex--;
+                    displayQuestion(currentQuestionIndex);
                         
                     } else {
                         alert('This is the first question.');
