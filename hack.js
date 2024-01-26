@@ -40,9 +40,6 @@ function startQuiz() {
 var category = document.getElementById('category').value;
 var difficulty = document.getElementById('difficulty').value;
 
-    console.log(difficulty);
-    console.log(category);
-
     correctans.style.color="black";
     op1.style.color="black";
     op2.style.color="black";
